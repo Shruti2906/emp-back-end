@@ -24,7 +24,7 @@ app.use(express.json());
 // });
 
 
-app.get('/get', (req, res) => {
+app.get('/', (req, res) => {
 
   res.status(200).json(employees)
 //   res.status(200).json({
@@ -34,7 +34,7 @@ app.get('/get', (req, res) => {
 })
 
 
-app.post('/add', (req, res) => {
+app.post('/', (req, res) => {
    
     const index = employees.findIndex(e => e.id === req.body.id);
     if(index === -1){
@@ -46,7 +46,7 @@ app.post('/add', (req, res) => {
     }
 })
 
-app.put('/put', (req, res)=>{
+app.put('/', (req, res)=>{
 
     const index = employees.findIndex(e => e.id === req.body.id);
     if(index !== -1){
@@ -61,7 +61,7 @@ app.put('/put', (req, res)=>{
 
 })
 
-app.delete('/delete/:id', (req, res) => {
+app.delete('/:id', (req, res) => {
   
   // const id = req.body.id;
   const id = req.params.id;
